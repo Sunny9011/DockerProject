@@ -1,6 +1,8 @@
 This is the first part of my project. Created an application to send a message. To use applications,
  you need to clone applications from the git hub repository, you can do this with the command:
+ 
  $ git clone https://github.com/Sunny9011/DockerProject.git 
+ 
  The container is based on the image of Alpine.
  In this project:
  - PHP 5.6
