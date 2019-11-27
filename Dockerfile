@@ -1,6 +1,7 @@
 FROM alpine
 
 RUN \
+ apk update \
  apk add --no-cache \
     apache2 \
   apache2-proxy \
