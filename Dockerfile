@@ -1,33 +1,24 @@
-FROM alpine
+FROM alpine:3.6
 
-RUN \
- apk update \
- apk add --no-cache \
-    apache2 \
-  apache2-proxy \
-  apache2-ssl \
-  apache2-utils \
-  curl \
-  git \
-  logrotate \
-  nano \
-  openssl \
-  php5 \
-  php5-apache2 \
-  php5-cli \
-  php5-curl \
-  php5-fpm
+RUN apk --no-cache add \
+        apache2 \
+        php5-apache2 \
+        curl \
+        php5-json \
+        php5-phar \
+        php5-openssl \
+        php5-curl \
+        php5-ctype \
+        php5-xml \
+        php5-dom \
+        php5-iconv \
+    && mkdir /run/apache2
 
-COPY root/ /
+VOLUME /app/data
 
-RUN mkdir /run/apache2
+EXPOSE 8080
 
+COPY httpd.conf /app/httpd.conf
+COPY data /app/data
 
-RUN \
- cp /defaults/httpd.conf /etc/apache2/httpd.conf && \
- cp /defaults/php-fpm.conf /etc/php5/php-fpm.conf
-
-CMD ["-D","FOREGROUND"]
-ENTRYPOINT ["/usr/sbin/httpd"]
-
-EXPOSE 80
+CMD [ "/usr/sbin/httpd", "-D", "FOREGROUND", "-f", "/app/httpd.conf" ]
