@@ -1,10 +1,10 @@
 Overview
 
-    Image based on alpine linux (currnetly 3.6)
-    Contains appache 2.4 + php 5.6.30
-    Apache runs or port 8080 
-    Very low footprint appx 49M
-To get the application, you must run the next command:
+Image based on alpine linux (currnetly 3.6)
+* Contains appache 2.4 + php 5.6.30
+* Apache runs or port 8080 
+* Very low footprint appx 49M
+* To get the application, you must run the next command:
 
 $ git clone https://github.com/Sunny9011/DockerProject.git
 
