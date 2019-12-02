@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  database:
+    build: ./databese
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+
+  alpine-apache-php:
+    build: ./
+    ports:
+      - 8080:8080
