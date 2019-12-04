@@ -14,7 +14,7 @@ try {
     $result = $data->fetchAll();
 
     if (count($result)) {
-        //выводим результат
+        //display data
         foreach ($result as $row) {
             echo " id: ".$row['id'] . "<br />";
             echo " firstName: ".$row['firstName'] . "<br />";
@@ -23,11 +23,11 @@ try {
             echo " reg_date: ".$row['reg_date'] . "<br />" ."<br />";
         }
     } else {
-        echo "Нет записей для вывода";
+        echo "Empty data";
     }
 
 } catch(PDOException $e) {
-    echo 'Ошибка: ' . $e->getMessage();
+    echo 'Error: ' . $e->getMessage();
 }
 
 $connection = null;
