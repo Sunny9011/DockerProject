@@ -15,8 +15,6 @@ RUN apk --no-cache add \
         php5-iconv \
     && mkdir /run/apache2
 
-VOLUME /app/data
-
 EXPOSE 8080
 
 COPY httpd.conf /app/httpd.conf

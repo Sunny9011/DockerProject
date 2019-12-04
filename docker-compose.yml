@@ -4,10 +4,18 @@ services:
   database:
     build: ./database
     restart: always
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8 --collation-server=utf8_general_ci
+    volumes:
+    - ./db:/var/lib/mysql
     environment:
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: '0000'
+      MYSQL_DATABASE: 'myDBPDO'
       MYSQL_ROOT_PASSWORD: 123456
 
   alpine-apache-php:
     build: ./
+    volumes:
+    - ./data/htdocs:/app/data/htdocs
     ports:
       - 8080:8080
